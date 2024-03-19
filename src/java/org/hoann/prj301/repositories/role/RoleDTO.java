@@ -1,4 +1,4 @@
-package org.hoann.prj301.repositories.user;
+package org.hoann.prj301.repositories.role;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -11,12 +11,8 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-public class UserDTO {
+public class RoleDTO {
 
-    private String userId;
-    private String name;
-    private String password;
-    private String phone;
     private String roleId;
-    private boolean status;
+    private String name;
 }

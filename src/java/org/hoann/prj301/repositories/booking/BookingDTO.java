@@ -1,4 +1,4 @@
-package org.hoann.prj301.repositories.feedback;
+package org.hoann.prj301.repositories.booking;
 
 import java.sql.Timestamp;
 import lombok.AllArgsConstructor;
@@ -12,11 +12,11 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-public class FeedbackDTO {
+public class BookingDTO {
 
-    private String feedbackId;
     private String bookingId;
-    private String description;
+    private String userId;
     private Timestamp time;
+    private double total;
     private boolean status;
 }
