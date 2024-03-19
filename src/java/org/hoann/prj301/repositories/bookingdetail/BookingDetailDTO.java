@@ -1,4 +1,4 @@
-package org.hoann.prj301.repositories.orderdetail;
+package org.hoann.prj301.repositories.bookingdetail;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -11,7 +11,7 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-public class OrderDetailDTO {
+public class BookingDetailDTO {
 
     private String bookingId;
     private String serviceId;

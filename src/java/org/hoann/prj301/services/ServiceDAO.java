@@ -1,5 +1,5 @@
 package org.hoann.prj301.services;
 
-public class OrderDAO {
+public class ServiceDAO {
 
 }
