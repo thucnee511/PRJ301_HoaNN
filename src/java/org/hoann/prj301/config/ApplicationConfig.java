@@ -17,6 +17,9 @@ public class ApplicationConfig extends HttpServlet {
     private static final String SEARCH_ACTION = "Search";
     private static final String SEARCH_ROUTE = "search";
 
+    private static final String BLOCK_ACTION = "Block";
+    private static final String BLOCK_ROUTE = "block";
+
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String url = WELCOME_PAGE;
@@ -25,10 +28,18 @@ public class ApplicationConfig extends HttpServlet {
             if (action == null) {
                 url = WELCOME_PAGE;
             } else {
-                if (LOGIN_ACTION.equals(action)) {
-                    url = LOGIN_ROUTE;
-                } else if (SEARCH_ACTION.equals(action)) {
-                    url = SEARCH_ROUTE;
+                switch (action) {
+                    case LOGIN_ACTION:
+                        url = LOGIN_ROUTE;
+                        break;
+                    case SEARCH_ACTION:
+                        url = SEARCH_ROUTE;
+                        break;
+                    case BLOCK_ACTION:
+                        url = BLOCK_ROUTE;
+                        break;
+                    default:
+                        break;
                 }
             }
         } catch (Exception e) {

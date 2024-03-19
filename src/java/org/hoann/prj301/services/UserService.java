@@ -36,4 +36,11 @@ public class UserService {
         });
         return list;
     }
+
+    public boolean block(String userId) {
+        UserDTO user = userDao.get(userId);
+        user.setStatus(false);
+        userDao.put(user);
+        return true;
+    }
 }

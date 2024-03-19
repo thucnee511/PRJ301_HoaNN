@@ -35,7 +35,7 @@
                         <td>${o.roleId}</td>
                         <td>${o.status ? "Active" : "Inactive"}</td>
                         <td>
-                            <a href="/main?action=Block&userId=${o.userId}">Block</a>
+                            <a href="/main?action=Block&userId=${o.userId}&keyword=${keyword}">Block</a>
                         </td>
                     </tr>
                 </c:forEach>
