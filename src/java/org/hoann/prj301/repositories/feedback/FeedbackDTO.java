@@ -18,5 +18,6 @@ public class FeedbackDTO {
     private String bookingId;
     private String description;
     private Timestamp time;
+    private String reply;
     private boolean status;
 }
