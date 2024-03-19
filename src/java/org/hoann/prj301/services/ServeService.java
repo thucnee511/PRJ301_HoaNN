@@ -1,5 +1,6 @@
 package org.hoann.prj301.services;
 
+import java.util.List;
 import org.hoann.prj301.core.Generator;
 import org.hoann.prj301.dao.ServiceDAO;
 import org.hoann.prj301.repositories.service.ServiceDTO;
@@ -14,6 +15,10 @@ public class ServeService {
 
     public static ServeService getInstance() {
         return instance = instance == null ? new ServeService() : instance;
+    }
+
+    public List<ServiceDTO> get() {
+        return serviceDao.get();
     }
 
     public boolean post(String name, double price) {
