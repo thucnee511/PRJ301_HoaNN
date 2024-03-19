@@ -1,43 +1,33 @@
 package org.hoann.prj301.routes;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-import org.hoann.prj301.repositories.user.UserDTO;
-import org.hoann.prj301.repositories.user.UserERROR;
-import org.hoann.prj301.services.UserService;
 
-@WebServlet(name = "LoginRoute", urlPatterns = {"/login"})
-public class LoginRoute extends HttpServlet {
+@WebServlet(name = "BlockUserRoute", urlPatterns = {"/block"})
+public class BlockUserRoute extends HttpServlet {
 
-    public static final String ERROR = "login.jsp";
-    public static final String AD_SUCCESS = "admin.jsp";
+    private static final String ERROR = "admin.jsp";
+    private static final String SUCCESS = "admin.jsp";
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String url = ERROR;
-        try {
-            String userId = request.getParameter("userId");
-            String password = request.getParameter("password");
-            UserService service = UserService.getInstance();
-            UserDTO user = service.checkLogin(userId, password);
-            HttpSession session = request.getSession();
-            session.setAttribute("LOGIN_USER", user);
-            if (user.getRoleId().equals("AD")) {
-                url = AD_SUCCESS;
-            } else {
-                session.invalidate();
-                url = ERROR;
-            }
-        } catch (UserERROR e) {
-            url = ERROR;
-            request.setAttribute("ERROR_MESSAGE", e.getMessage());
-        } finally {
-            request.getRequestDispatcher(url).forward(request, response);
+        response.setContentType("text/html;charset=UTF-8");
+        try (PrintWriter out = response.getWriter()) {
+            /* TODO output your page here. You may use following sample code. */
+            out.println("<!DOCTYPE html>");
+            out.println("<html>");
+            out.println("<head>");
+            out.println("<title>Servlet BlockUserRoute</title>");
+            out.println("</head>");
+            out.println("<body>");
+            out.println("<h1>Servlet BlockUserRoute at " + request.getContextPath() + "</h1>");
+            out.println("</body>");
+            out.println("</html>");
         }
     }
 

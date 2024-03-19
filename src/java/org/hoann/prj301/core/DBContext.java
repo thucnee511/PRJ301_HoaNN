@@ -10,7 +10,7 @@ import java.util.logging.Logger;
 
 public class DBContext {
 
-    private static final String DB_NAME = "";
+    private static final String DB_NAME = "PRJ301";
     private static final String DB_USERNAME = "sa";
     private static final String DB_PASSWORD = "12345";
     private static DBContext instance;

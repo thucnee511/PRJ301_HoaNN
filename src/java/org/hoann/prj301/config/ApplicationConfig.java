@@ -14,6 +14,9 @@ public class ApplicationConfig extends HttpServlet {
     private static final String LOGIN_ACTION = "Login";
     private static final String LOGIN_ROUTE = "login";
 
+    private static final String SEARCH_ACTION = "Search";
+    private static final String SEARCH_ROUTE = "search";
+
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String url = WELCOME_PAGE;
@@ -24,6 +27,8 @@ public class ApplicationConfig extends HttpServlet {
             } else {
                 if (LOGIN_ACTION.equals(action)) {
                     url = LOGIN_ROUTE;
+                } else if (SEARCH_ACTION.equals(action)) {
+                    url = SEARCH_ROUTE;
                 }
             }
         } catch (Exception e) {

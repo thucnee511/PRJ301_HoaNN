@@ -9,8 +9,8 @@
         <h1>Login to continue</h1>
         <form action="main" method="POST">
             <p>${ERROR_MESSAGE}</p>
-            UserID <input type="text" name="userid" required=""/>
-            Password <input type="password" name="password" required/>
+            UserID <input type="text" name="userid" required=""/><br>
+            Password <input type="password" name="password" required/><br>
             <input type="submit" name="action" value="Login"/>
             <input type="reset" value="Reset"/>
         </form>

@@ -1,5 +1,7 @@
 package org.hoann.prj301.services;
 
+import java.util.ArrayList;
+import java.util.List;
 import org.hoann.prj301.dao.UserDAO;
 import org.hoann.prj301.repositories.user.UserDTO;
 import org.hoann.prj301.repositories.user.UserERROR;
@@ -22,5 +24,16 @@ public class UserService {
             throw new UserERROR("Invalid userId or password");
         }
         return user;
+    }
+
+    public List<UserDTO> search(String keyword) {
+        List<UserDTO> list = new ArrayList<>();
+        List<UserDTO> users = userDao.get();
+        users.forEach(user -> {
+            if (user.getName().contains(keyword)) {
+                list.add(user);
+            }
+        });
+        return list;
     }
 }

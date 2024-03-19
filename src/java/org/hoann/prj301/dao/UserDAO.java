@@ -86,7 +86,7 @@ public class UserDAO {
             rs = stm.executeQuery();
             while (rs.next()) {
                 String name = rs.getString("name");
-                String password = "********";
+                String password = rs.getString("password");
                 String phone = rs.getString("phone");
                 String roleId = rs.getString("roleId");
                 boolean status = rs.getBoolean("status");

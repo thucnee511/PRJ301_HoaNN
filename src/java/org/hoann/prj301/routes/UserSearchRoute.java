@@ -1,41 +1,36 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
+ */
 package org.hoann.prj301.routes;
 
 import java.io.IOException;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import org.hoann.prj301.repositories.user.UserDTO;
-import org.hoann.prj301.repositories.user.UserERROR;
 import org.hoann.prj301.services.UserService;
 
-@WebServlet(name = "LoginRoute", urlPatterns = {"/login"})
-public class LoginRoute extends HttpServlet {
+@WebServlet(name = "UserSearchRoute", urlPatterns = {"/usersearch"})
+public class UserSearchRoute extends HttpServlet {
 
-    public static final String ERROR = "login.jsp";
-    public static final String AD_SUCCESS = "admin.jsp";
+    private static final String ERROR = "admin.jsp";
+    private static final String SUCCESS = "admin.jsp";
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String url = ERROR;
         try {
-            String userId = request.getParameter("userId");
-            String password = request.getParameter("password");
+            String keyword = request.getParameter("keyword");
             UserService service = UserService.getInstance();
-            UserDTO user = service.checkLogin(userId, password);
-            HttpSession session = request.getSession();
-            session.setAttribute("LOGIN_USER", user);
-            if (user.getRoleId().equals("AD")) {
-                url = AD_SUCCESS;
-            } else {
-                session.invalidate();
-                url = ERROR;
-            }
-        } catch (UserERROR e) {
-            url = ERROR;
-            request.setAttribute("ERROR_MESSAGE", e.getMessage());
+            List<UserDTO> users = service.search(keyword);
+            request.setAttribute("USER_LIST", users);
+            url = SUCCESS;
+        } catch (Exception e) {
+            log("Exception at usersearch route" + e);
         } finally {
             request.getRequestDispatcher(url).forward(request, response);
         }
