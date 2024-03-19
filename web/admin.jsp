@@ -41,5 +41,13 @@
                 </c:forEach>
             </tbody>
         </table>
+        <br>
+        <br>
+        <h3>Service Management</h3>
+        <form action="main">
+            Service name <input type="text" name="name" required=""/>
+            Service price<input type="number" name="price" required=""/>
+            <input type="submit" name="action" value="Add Service"/>
+        </form>
     </body>
 </html>

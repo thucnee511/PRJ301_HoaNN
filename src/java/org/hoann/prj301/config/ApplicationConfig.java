@@ -20,6 +20,9 @@ public class ApplicationConfig extends HttpServlet {
     private static final String BLOCK_ACTION = "Block";
     private static final String BLOCK_ROUTE = "block";
 
+    private static final String ADD_SERVICE_ACTION = "Add Service";
+    private static final String ADD_SERVICE_ROUTE = "addservice";
+
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String url = WELCOME_PAGE;
@@ -37,6 +40,9 @@ public class ApplicationConfig extends HttpServlet {
                         break;
                     case BLOCK_ACTION:
                         url = BLOCK_ROUTE;
+                        break;
+                    case ADD_SERVICE_ACTION:
+                        url = ADD_SERVICE_ROUTE;
                         break;
                     default:
                         break;
