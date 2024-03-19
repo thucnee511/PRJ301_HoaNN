@@ -23,6 +23,9 @@ public class ApplicationConfig extends HttpServlet {
     private static final String ADD_SERVICE_ACTION = "Add Service";
     private static final String ADD_SERVICE_ROUTE = "addservice";
 
+    private static final String UPDATE_SERVICE_ACTION = "Update Service";
+    private static final String UPDATE_SERVICE_ROUTE = "updateservice";
+
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String url = WELCOME_PAGE;
@@ -43,6 +46,9 @@ public class ApplicationConfig extends HttpServlet {
                         break;
                     case ADD_SERVICE_ACTION:
                         url = ADD_SERVICE_ROUTE;
+                        break;
+                    case UPDATE_SERVICE_ACTION:
+                        url = UPDATE_SERVICE_ROUTE;
                         break;
                     default:
                         break;

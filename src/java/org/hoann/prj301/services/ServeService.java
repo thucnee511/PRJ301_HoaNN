@@ -22,4 +22,9 @@ public class ServeService {
         serviceDao.post(new ServiceDTO(serviceId, name, price, status));
         return true;
     }
+
+    public boolean put(ServiceDTO service) {
+        serviceDao.put(service);
+        return true;
+    }
 }
